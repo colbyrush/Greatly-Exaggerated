@@ -7,7 +7,7 @@ create encounter list
 			if monster
 				enter creature name and amount of monster(s)
 					pull stat block from dnd resource
-						parse HP from stat block
+						parse HP and dex bonus from stat block
 						link/display stat block for each unique monster
 			if PC
 				enter PC name and HP
@@ -15,19 +15,19 @@ create encounter list
 			if PC 
 				input given count
 			if monster
-				auto adds monster bonus to given roll
+				auto adds monster dex bonus to given roll
 	save combatant group to encounter list
-		repeat until all combatant groups are added
+	repeat until all combatant groups are added
 sort encounter list by initiative count high to low
 	if same initiative count
-		prompt to select who goes first/second/etc
+		prompt to manually select who goes first/second/etc
 			resort list once all decided
 	display sorted list
-		if multiple members of a combatant group
-			display all members and curr HP
+		if multiple members in a combatant group
+			display all members and their curr HP
 edit encounter list as needed
 	update status effects of combatant group member
-		display status effects on combatant group member turn
+		option to manually add status and choose turn duration of status
 	update combatant group member hp
 		add/remove HP as needed
 			if HP hits <=0
@@ -45,8 +45,13 @@ edit encounter list as needed
 	add/remove combatant groups as needed
 		sort list according to new encounter list once completed
 track current encounter round
+	start at top of list and work down
+		manually end combatant group member turn
+			remove temp status effects at end of turn automatically
+		reset to top of list after bottom of list ends turn
 	display who's turn it is
-	display how many turns taken by combatant group since beginning of encounter
+	display status effects on combatant group member turn
+	display how many turns taken by combatant group member since beginning of encounter
 end combat
 	reset application
 	
